@@ -1,0 +1,42 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./components/name-card.html">
+<link rel="import" href="../bower_components/app-layout/app-layout.html">
+
+<dom-module id="my-app">
+    <!-- Register a template -->
+    <template>
+        <!-- Define it's styling -->
+        <style include="app-grid-style">
+            :host {
+                display: block;
+                height: 200vh;
+                --app-grid-columns: 3;
+                --app-grid-item-height: 100px;
+            }
+            .container {
+                padding: 16px;
+            }
+        </style>
+        <div class="app-grid">
+            <name-card class='container'></name-card>
+            <div class='container'>
+                test
+            </div>
+            <div class='container'>
+                another column
+            </div>
+            <div class='container'>
+                fourth?
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+    Polymer({
+
+    is: 'my-app'      
+
+    });
+  </script>
+</dom-module>

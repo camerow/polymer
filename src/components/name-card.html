@@ -1,0 +1,48 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="name-card">
+    
+    <template>
+        <h2 on-tap='handleNameTap'>Hello [[_formatName(prop1.name)]]</h2>
+        <p on-tap='handleDescTap'>{{prop1.desc}}</p>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'name-card',
+
+            _formatName: function(name) {
+                return name[0].toUpperCase() + name.slice(1, name.length);
+            },
+
+            handleDescTap: function() {        
+                if (this.prop1.desc === 'testing resumed') {
+                return this.set('prop1.desc', 'Who!?')          
+                }
+
+                this.set('prop1.desc', 'testing resumed')
+            },
+
+            handleNameTap: function() {
+                if (this.prop1.name === "test") {
+                return this.set('prop1.name', 'you');
+                
+                }
+
+                this.set('prop1.name', 'test');
+            },
+
+            properties: {
+                prop1: {
+                    type: Object,
+                    value: {
+                        name: "test",
+                        desc: "a test app"
+                    },
+                    notify: true
+                }
+            }
+        })
+    </script>
+
+</dom-module>

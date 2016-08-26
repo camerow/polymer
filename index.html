@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>app-boiler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    
+    <link rel="manifest" href="/manifest.json">
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="/src/my-app.html">
+    <link rel="import" href="../bower_components/app-layout/app-layout.html">
+
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" type="" href="/bower_components/app-route/app-route.html">
+</head>
+
+<style is="custom-style">
+    body {
+        margin: 0;
+        font-family: 'Roboto', Helvetica, sans-serif;
+    }
+    /*.no-pad {
+        padding: 0;
+    }*/
+    /*paper-tabs {
+        height: 100%;
+    }*/
+    .link {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        text-decoration: none;
+        color: white;
+    }
+    app-toolbar {
+        /* Toolbar is the main header, so give it some color */
+        background-color: #1E88E5;
+        color: white;
+        --app-toolbar-font-size: 24px;
+    }
+</style>
+
+<body>
+    <!-- Routing -->
+    <app-location route="{{route}}"></app-location>
+
+    <app-route route="{{route}}" pattern="/:view" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+    <app-header-layout>
+        <app-header fixed condenses>
+            <app-toolbar>
+                <!--<paper-icon-button icon="menu"></paper-icon-button>-->
+                <div main-title>My App</div>
+                <!--<paper-icon-button icon="search"></paper-icon-button>   -->
+            </app-toolbar>
+
+            <app-toolbar>                
+                <paper-tabs bottom-item selected="0">
+                    <paper-tab link='true' main-title>                        
+                        <a href="#test1" class="link" tabindex="-1">test</a>                    
+                    </paper-tab>
+                    <paper-tab noink=true main-title>TAB 1</paper-tab>
+                    <paper-tab noink=true main-title>TAB 3</paper-tab>
+                </paper-tabs>                
+            </app-toolbar>
+        </app-header>
+        
+        <my-app class="container"></my-app>
+
+    </app-header-layout>    
+</body>
+
+</html>
